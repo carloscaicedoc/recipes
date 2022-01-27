@@ -9,6 +9,15 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h2 class="text-center text-success ms-5 mt-3 ps-5">BOOK RECIPE</h2>
+            <form class="d-flex">
+                <input class="form-control me-3 " type="search" placeholder="Search" aria-label="Search">
+                <a href="/" class="btn btn-outline-success text-warning ms-3 me-5 px-4">Login</a>
+            </form>
+        </div>
+    </nav>
     <div class="d-flex justify-content-around">
         <form action="/register" method="post" class="col-4 p-4 bg-light mt-5 rounded border text-dark">
             <h2 class="text-dark my-2">Register</h2>
@@ -42,7 +51,7 @@
                 <label for="confirm">Confirm Password:</label>
                 <input type="password" name="confirm" class="form-control">
             </div>
-            <input type="submit" value="Register" class="btn btn-success mt-3">
+            <input type="submit" value="Register" class="btn btn-success mt-3 text-warning">
         </form>
         <form action="/login" method="post" class="col-4 p-4 bg-light mt-5 rounded border text-dark">
             <h2 class="text-dark">Login</h2>
@@ -64,7 +73,7 @@
                 <label for="password">Password:</label>
                 <input type="password" name="password" class="form-control">
             </div>
-            <input type="submit" value="Login" class="btn btn-success mt-3">
+            <input type="submit" value="Login" class="btn btn-success mt-3 text-warning">
         </form>
     </div>
 

@@ -20,47 +20,29 @@
         </div>
     </nav>
     <div class="main">
-        <div class="col-7 mx-auto mt-3">
+        <div class="col-8 mx-auto mt-3">
             <h3>Your Recipe Book:</h3>
             <table class="table border my-3">
                 <thead class="bg-warning">
                   <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Recipe Title</th>
-                    <th scope="col">Time Range</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Under 30 min?</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">17</th>
-                        <td>Sourdough Bread</td>
-                        <td>25 minutes.</td>
-                        <td>
-                            <a href="#">View</a>
-                            <a href="#">Edit</a>
-                            <a href="#">Update</a>
-                        </td>
-                    </tr>
-                    {% for recipe in user.recipes %}
-                    <tr>
-                        <td>{{ninja.first_name}}</td>
-                        <td>{{ninja.last_name}}</td>
-                        <td>{{ninja.age}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-                <!-- <tbody>
                     {% for recipe in recipes %}
                         <tr>
                             <td>{{recipe.name}}</td>
+                            <td>{{recipe.description}}</td>
                             {% if recipe.under30 == 1 %}
                             <td>Yes</td>
                             {% else %}
                             <td>No</td>
                             {% endif %}
                             <td>
-                                <a href="/recipe/{{recipe.id}}">View Instructions</a>
+                                <a href="/recipe/{{recipe.id}}">View</a>
                                 {% if recipe.user_id == session.user_id %}
                                 <a href="/edit/recipe/{{recipe.id}}">Edit</a>
                                 <a href="/destroy/recipe/{{recipe.id}}">Delete</a>
@@ -68,7 +50,8 @@
                             </td>
                         </tr>
                     {% endfor %}
-                </tbody> -->
+                </tbody>
+                
               </table>
         </div>
     </div>

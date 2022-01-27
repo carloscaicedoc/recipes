@@ -8,7 +8,7 @@ bcrypt = Bcrypt(app)
 
 
 class User:
-    db = "login_registration"
+    db = "recipes_db"
     def __init__(self, data):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -86,7 +86,6 @@ class User:
 
     @staticmethod
     def validate_login(user):
-
         results = User.get_one(user)
         if not results:
             flash("Invalid email & password.", "login")
@@ -94,5 +93,4 @@ class User:
         if not bcrypt.check_password_hash(results.password, user['password']):
             flash("Invalid email & password.", "login")
             return False
-
         return results

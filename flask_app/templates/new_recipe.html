@@ -11,11 +11,13 @@
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <h2 class="text-center text-light ms-4 mt-3 p-1">Create Recipe</h2>
+            <h2 class="text-center text-warning ms-4 mt-3 p-1">Create Recipe {{ user.first_name }}</h2>
             <form class="d-flex">
-                <input class="form-control me-3 " type="search" placeholder="Search" aria-label="Search">
-                <a href="/dashboard" class="btn btn-outline-success ms-3 me-3">Dashboard</a>
-                <a href="/logout" class="btn btn-outline-success ms-3 me-3">Logout</a>
+                <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+                <a href="/edit/recipe/<int:id>" class="btn btn-outline-success ms-3">Edit</a>
+
+                <a href="/dashboard" class="btn btn-outline-success ms-2">Dashboard</a>
+                <a href="/logout" class="btn btn-outline-success ms-2 me-2">Logout</a>
             </form>
         </div>
     </nav>
@@ -35,6 +37,16 @@
                     </div> 
                 </div>
                 <div class="col-2 offset-1 mt-5">
+                    {% with messages = get_flashed_messages(category_filter=['recipe']) %}
+                        {% if messages %}
+                        <div class="alert alert-danger" role="alert">
+                            <strong>ERROR!</strong>
+                                {% for message in messages %}
+                                <p>{{message}}</p>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                    {% endwith %}                             
                     <div class="form-group">
                         <label for="date_made" class="my-2">Date:</label>
                         <input type="text" name="date_made" class="form-control">
@@ -47,16 +59,6 @@
                         </select>
                     </div> 
                     <input type="submit" value="Submit Recipe" class="btn btn-success mt-5 mb-4">
-                    {% with messages = get_flashed_messages(category_filter=['recipe']) %}
-                        {% if messages %}
-                        <div class="alert alert-danger" role="alert">
-                            <strong>Error</strong>
-                                {% for message in messages %}
-                                <p>{{message}}</p>
-                                {% endfor %}
-                        </div>
-                        {% endif %}
-                    {% endwith %}                             
                 </div>
             </form>
      
